@@ -74,7 +74,7 @@ def test_delete_mutationn():
     deleteBusiness(id: 1) {
         business {
         id
-        } 
+        }
     }
     }'''
     r = requests.post(request_url, json={'query': delete_mutationn})
@@ -82,3 +82,10 @@ def test_delete_mutationn():
     print(r.status_code)
     response = json.loads(r.text)
     print(response)
+
+if __name__ == '__main__':
+    test_get_all_buisness()
+    test_get_all_buisness_by_id()
+    test_create_mutation()
+    test_update_mutation()
+    test_delete_mutationn()
