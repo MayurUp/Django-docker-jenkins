@@ -1,10 +1,9 @@
 import graphene
+from graphene_django import DjangoObjectType
+from .models import Business
 
-from graphene_django import DjangoObjectType, DjangoListField 
-from .models import Business 
 
-
-class BusinessType(DjangoObjectType): 
+class BusinessType(DjangoObjectType):
     class Meta:
         model = Business
         fields = "__all__"
@@ -26,7 +25,8 @@ class BusinessInput(graphene.InputObjectType):
     name = graphene.String()
     address = graphene.String()
     owner_info = graphene.String()
-    employee_size = graphene.Int() 
+    employee_size = graphene.Int()
+
 
 class CreateBusiness(graphene.Mutation):
     class Arguments:
@@ -36,7 +36,7 @@ class CreateBusiness(graphene.Mutation):
 
     @staticmethod
     def mutate(root, info, business_data=None):
-        business_instance = Business( 
+        business_instance = Business(
             name=business_data.name,
             address=business_data.address,
             owner_info=business_data.owner_info,
@@ -44,6 +44,7 @@ class CreateBusiness(graphene.Mutation):
         )
         business_instance.save()
         return CreateBusiness(business=business_instance)
+
 
 class UpdateBusiness(graphene.Mutation):
     class Arguments:
@@ -64,7 +65,9 @@ class UpdateBusiness(graphene.Mutation):
             business_instance.save()
 
             return UpdateBusiness(business=business_instance)
+
         return UpdateBusiness(business=None)
+
 
 class DeleteBusiness(graphene.Mutation):
     class Arguments:
@@ -77,6 +80,7 @@ class DeleteBusiness(graphene.Mutation):
         business_instance = Business.objects.get(pk=id)
         business_instance.delete()
         return None
+
 
 class Mutation(graphene.ObjectType):
     create_business = CreateBusiness.Field()
