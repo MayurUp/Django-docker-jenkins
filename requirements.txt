@@ -28,6 +28,5 @@ toml==0.10.2
 typing-extensions==3.10.0.0
 urllib3==1.26.4
 zipp==3.4.1
-pre-commit==2.19.0
 coverage==6.4.1
 pyflakes==2.4.0
