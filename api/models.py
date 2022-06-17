@@ -1,5 +1,6 @@
 from django.db import models
-import time
+
+
 # Create your models here.
 class Business(models.Model):
     name = models.CharField(max_length=50)
