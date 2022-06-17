@@ -27,7 +27,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run migrations
       run: |
-          python manage.py makemigration
+          python manage.py makemigrations
           python manage.py migrate
     - name: Lint with flake8
       run: |
