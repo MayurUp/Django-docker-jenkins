@@ -37,3 +37,7 @@ jobs:
     - name: Django Testing
       run: |
         python3 manage.py test
+    - name: Custom Pytests
+      run: |
+        pytest test_cases
+
