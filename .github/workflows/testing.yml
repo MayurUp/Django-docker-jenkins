@@ -44,7 +44,7 @@ jobs:
                 
     - name: Run server
       run: |
-        python manage.py runserver -d
+        python manage.py runserver &
     - name: Custom Pytests
       run: |
         pytest test_cases
