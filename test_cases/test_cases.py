@@ -95,7 +95,6 @@ def test_delete_mutationn():
     response = json.loads(r.text)
     print(response)
 
-
 if __name__ == '__main__':
     test_get_all_buisness()
     test_get_all_buisness_by_id()
