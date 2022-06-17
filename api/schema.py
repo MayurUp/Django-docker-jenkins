@@ -65,7 +65,6 @@ class UpdateBusiness(graphene.Mutation):
             business_instance.save()
 
             return UpdateBusiness(business=business_instance)
-
         return UpdateBusiness(business=None)
 
 
